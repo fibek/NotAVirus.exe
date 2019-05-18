@@ -11,7 +11,6 @@ CClip::~CClip()
 
 void CClip::GetClipboard(std::fstream & cf)
 {
-	Sleep(200);
 	OpenClipboard(nullptr);
 	data = GetClipboardData(CF_TEXT);
 	char * pT = static_cast<char *>(GlobalLock(data));
