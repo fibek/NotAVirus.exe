@@ -18,7 +18,7 @@ something about this app...
 
 1. Create pass.txt 
 
-    `example@gmail.com <br />  
+    `example@gmail.com    
     password`
      
 2. Copy send_email.py to %APPDATA%
