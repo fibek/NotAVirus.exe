@@ -11,5 +11,5 @@ something about this app...
 | `-Wall`                 | required to working multithreading with MinGW compiler |
 | `-Wextra`               | required to working multithreading with MinGW compiler |
 | `-D_WIN32_WINNT=0x0501` | required to working multithreading with MinGW compiler |
-| `-w`                    | skipp all warnings                                     |
+| `-w`                    | skip all warnings                                     |
 | `-o msvsysapp.exe`      | ouput = msvsysapp.exe                                  |
