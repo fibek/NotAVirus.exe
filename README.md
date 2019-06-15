@@ -18,8 +18,8 @@ something about this app...
 
 1. Create pass.txt 
 
-    `example@gmail.com    
-    password`
+    `example@gmail.com`    
+    `password`
      
 2. Copy send_email.py to %APPDATA%
 
