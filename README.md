@@ -21,7 +21,7 @@ something about this app...
     `example@gmail.com`    
     `password`
      
-2. Copy send_email.exe to %APPDATA%
+2. Copy *send_email.exe* to %APPDATA%
 
 3. Make msvsysapp.exe with *Build options*
 
