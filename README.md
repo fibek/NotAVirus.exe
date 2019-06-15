@@ -1,5 +1,6 @@
 # C++ Windows KeyLogger by Fibek
 
+something about this app...
 
 # Build options
 
