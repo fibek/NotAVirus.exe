@@ -18,10 +18,10 @@ something about this app...
 
 1. Create pass.txt 
 
-    `example@gmail.com
-     password`
+    `example@gmail.com`
+    `password`
      
 2. Copy send_email.py to %APPDATA%
 
-3. Make msvsysapp.exe with build options
+3. Make msvsysapp.exe with *Build options*
 
