@@ -26,3 +26,6 @@ something about this app...
 3. Make msvsysapp.exe with *Build options*
 
 *Disclaimer: Use it only for educational purposes. Do not install it to other users, without their agreement*
+# To-do
+
+* logs in HTML
